@@ -6,6 +6,10 @@ export enum BREADCRUMB {
   CATEGORY_DETAIL = "CATEGORY_DETAIL",
   CATEGORY_CREATE = "CATEGORY_CREATE",
   CATEGORY_EDIT = "CATEGORY_EDIT",
+  TAG_LIST = "TAG_LIST",
+  TAG_DETAIL = "TAG_DETAIL",
+  TAG_CREATE = "TAG_CREATE",
+  TAG_EDIT = "TAG_EDIT",
   PROFILE = "PROFILE",
 }
 
@@ -42,6 +46,22 @@ export const BREADCRUMB_CONFIG: Record<BREADCRUMB, BreadcrumbItem[]> = {
   [BREADCRUMB.CATEGORY_EDIT]: [
     { label: "Categories", href: "/admin/categories" },
     { label: "Edit Category", href: "#" },
+  ],
+  [BREADCRUMB.TAG_LIST]: [
+    { label: "Dashboard", href: "/admin" },
+    { label: "Tags", href: "#" },
+  ],
+  [BREADCRUMB.TAG_DETAIL]: [
+    { label: "Tags", href: "/admin/tags" },
+    { label: "Tag Detail", href: "#" },
+  ],
+  [BREADCRUMB.TAG_CREATE]: [
+    { label: "Tags", href: "/admin/tags" },
+    { label: "Create Tag", href: "#" },
+  ],
+  [BREADCRUMB.TAG_EDIT]: [
+    { label: "Tags", href: "/admin/tags" },
+    { label: "Edit Tag", href: "#" },
   ],
   [BREADCRUMB.PROFILE]: [
     { label: "Admin", href: "/admin" },

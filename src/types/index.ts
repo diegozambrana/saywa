@@ -98,3 +98,4 @@ export type matcherType = {
 
 export * from "./Profile";
 export * from "./Category";
+export * from "./Tag";
