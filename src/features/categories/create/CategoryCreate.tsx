@@ -44,6 +44,7 @@ export const CategoryCreate = ({
   });
 
   const isEditMode = !!categoryId;
+  const generatedSlug = form.watch("slug");
   const currentId = initialCategory?.id;
   const parentOptions = categories.filter((item) => item.id !== currentId);
 
@@ -82,24 +83,11 @@ export const CategoryCreate = ({
                 )}
               />
 
-              <FormField
-                control={form.control}
-                name="slug"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      Slug <span className="text-destructive">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input placeholder="category-slug" {...field} />
-                    </FormControl>
-                    <FormDescription>
-                      Used in URL-friendly identifiers.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <div className="space-y-1">
+                <p className="py-2 text-sm">
+                  slug: <span className="font-mono text-foreground">{generatedSlug || "-"}</span>
+                </p>
+              </div>
 
               <FormField
                 control={form.control}

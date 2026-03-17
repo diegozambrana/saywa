@@ -31,6 +31,7 @@ export const TagCreate = ({ tagId, initialTag }: TagCreateProps) => {
   });
 
   const isEditMode = !!tagId;
+  const generatedSlug = form.watch("slug");
 
   return (
     <MainContainer
@@ -67,24 +68,11 @@ export const TagCreate = ({ tagId, initialTag }: TagCreateProps) => {
                 )}
               />
 
-              <FormField
-                control={form.control}
-                name="slug"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      Slug <span className="text-destructive">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input placeholder="tag-slug" {...field} />
-                    </FormControl>
-                    <FormDescription>
-                      Used in URL-friendly identifiers.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <div className="space-y-1">
+                <p className="py-2 text-sm">
+                  slug: <span className="font-mono text-foreground">{generatedSlug || "-"}</span>
+                </p>
+              </div>
             </CardContent>
           </Card>
 
