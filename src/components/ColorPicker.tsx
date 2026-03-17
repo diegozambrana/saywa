@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { HexColorPicker } from "react-colorful";
 import {
   Popover,
@@ -28,18 +28,12 @@ interface ColorPickerProps {
 }
 
 export const ColorPicker = ({ value, onChange, label, defaultColor }: ColorPickerProps) => {
-  const [localColor, setLocalColor] = useState(value || "");
-  const [hexInput, setHexInput] = useState(value || "");
+  const [hexInput, setHexInput] = useState("");
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setLocalColor(value || "");
-    setHexInput(value || "");
-  }, [value]);
+  const selectedColor = value || "";
 
   const handleColorChange = useCallback(
     (color: string) => {
-      setLocalColor(color);
       setHexInput(color);
       onChange(color);
     },
@@ -52,7 +46,6 @@ export const ColorPicker = ({ value, onChange, label, defaultColor }: ColorPicke
       setHexInput(sanitized);
 
       if (/^#[0-9A-Fa-f]{6}$/.test(sanitized)) {
-        setLocalColor(sanitized);
         onChange(sanitized);
       }
     },
@@ -60,7 +53,6 @@ export const ColorPicker = ({ value, onChange, label, defaultColor }: ColorPicke
   );
 
   const handleClear = useCallback(() => {
-    setLocalColor("");
     setHexInput("");
     onChange(null);
     setOpen(false);
@@ -73,7 +65,15 @@ export const ColorPicker = ({ value, onChange, label, defaultColor }: ColorPicke
           {label}
         </span>
       )}
-      <Popover open={open} onOpenChange={setOpen}>
+      <Popover
+        open={open}
+        onOpenChange={(nextOpen) => {
+          setOpen(nextOpen);
+          if (nextOpen) {
+            setHexInput(value || "");
+          }
+        }}
+      >
         <PopoverTrigger asChild>
           <button
             type="button"
@@ -86,20 +86,20 @@ export const ColorPicker = ({ value, onChange, label, defaultColor }: ColorPicke
             <div
               className="h-5 w-5 rounded border border-border flex-shrink-0"
               style={{
-                backgroundColor: localColor || defaultColor || "transparent",
-                backgroundImage: (localColor || defaultColor)
+                backgroundColor: selectedColor || defaultColor || "transparent",
+                backgroundImage: (selectedColor || defaultColor)
                   ? undefined
                   : "linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%)",
-                backgroundSize: (localColor || defaultColor) ? undefined : "8px 8px",
-                backgroundPosition: (localColor || defaultColor)
+                backgroundSize: (selectedColor || defaultColor) ? undefined : "8px 8px",
+                backgroundPosition: (selectedColor || defaultColor)
                   ? undefined
                   : "0 0, 0 4px, 4px -4px, -4px 0px",
               }}
             />
-            <span className={cn("flex-1 text-left truncate", !localColor && !defaultColor && "text-muted-foreground")}>
-              {localColor || defaultColor || "Sin color"}
+            <span className={cn("flex-1 text-left truncate", !selectedColor && !defaultColor && "text-muted-foreground")}>
+              {selectedColor || defaultColor || "Sin color"}
             </span>
-            {localColor && (
+            {selectedColor && (
               <X
                 className="h-3.5 w-3.5 text-muted-foreground hover:text-foreground flex-shrink-0"
                 onClick={(e) => {
@@ -124,7 +124,7 @@ export const ColorPicker = ({ value, onChange, label, defaultColor }: ColorPicke
                     type="button"
                     className={cn(
                       "h-7 w-7 rounded-md border transition-all hover:scale-110",
-                      localColor === color
+                      selectedColor === color
                         ? "border-foreground ring-2 ring-foreground/20"
                         : "border-border",
                     )}
@@ -142,7 +142,7 @@ export const ColorPicker = ({ value, onChange, label, defaultColor }: ColorPicke
                 Selector de color
               </p>
               <HexColorPicker
-                color={localColor || "#000000"}
+                color={selectedColor || "#000000"}
                 onChange={handleColorChange}
                 style={{ width: "100%", height: "140px" }}
               />

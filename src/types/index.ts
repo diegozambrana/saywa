@@ -95,3 +95,5 @@ export type matcherType = {
   linkedin?: string;
   phone?: string;
 };
+
+export * from "./Profile";

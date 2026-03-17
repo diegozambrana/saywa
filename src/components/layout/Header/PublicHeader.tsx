@@ -38,8 +38,8 @@ export function PublicHeader() {
             </li>
           ))}
           <li>
-            <Link href="/blog" className="transition-colors hover:text-primary">
-              Blog
+            <Link href="/auth/login" className="transition-colors hover:text-primary">
+              Login
             </Link>
           </li>
         </ul>

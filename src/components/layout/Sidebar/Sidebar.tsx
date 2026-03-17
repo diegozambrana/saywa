@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { DashboardNav } from "@/components/dashboard-nav";
 import { navItems } from "@/constants/data";
 import { cn } from "@/lib/utils";
@@ -31,7 +30,7 @@ export function Sidebar({ className }: SidebarProps) {
     >
       <div className="hidden p-5 pt-10 lg:block">
         <Link
-          href={"/dashboard"}
+          href={"/admin"}
           className={cn(
             "flex items-center gap-2",
             isMinimized && "justify-center"

@@ -9,15 +9,8 @@ export function AdminLayoutHandler() {
   // Detectar si estamos en una ruta de admin
   // Las rutas de admin están bajo app/(admin)/
   const isAdminRoute = pathname
-    ? (pathname.startsWith("/dashboard") ||
-      pathname.startsWith("/business") ||
-      pathname.startsWith("/product") ||
-      pathname.startsWith("/catalog") ||
-      pathname.startsWith("/support") ||
-      pathname.startsWith("/user") ||
-      pathname.startsWith("/admin") ||
-      pathname.startsWith("/profile") ||
-      pathname.startsWith("/onboarding"))
+    ? (pathname.startsWith("/admin") ||
+      pathname.startsWith("/profile"))
     : false;
 
   useEffect(() => {

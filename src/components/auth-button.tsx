@@ -40,7 +40,7 @@ export const AuthButton: FC<AuthButtonProps> = async ({ isPublic = false }) => {
   return (
     <div className="flex items-center gap-4">
       {isPublic && user && <Button asChild size="sm" variant={"outline"}>
-        <Link href="/dashboard">Dashboard</Link>
+        <Link href="/admin">Admin</Link>
       </Button>}
       <UserMenu
         email={user.email || ""}

@@ -10,7 +10,7 @@ export function AdminOnly({ children }: { children: React.ReactNode }) {
 
     useEffect(() => {
         if (!loading && !isAdmin()) {
-            router.push("/dashboard");
+            router.push("/admin");
         }
     }, [isAdmin, loading, router]);
 

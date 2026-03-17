@@ -60,7 +60,7 @@ export const BREADCRUMB_CONFIG: Record<BREADCRUMB, BreadcrumbItem[]> = {
     { label: "Vista PDF", href: "#" },
   ],
   [BREADCRUMB.PROFILE]: [
-    { label: "Dashboard", href: "/dashboard" },
+    { label: "Admin", href: "/admin" },
     { label: "Mi Perfil", href: "#" },
   ],
 };
