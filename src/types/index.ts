@@ -97,3 +97,4 @@ export type matcherType = {
 };
 
 export * from "./Profile";
+export * from "./Category";

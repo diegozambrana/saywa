@@ -2,13 +2,10 @@ export enum BREADCRUMB {
   BUSINESS_DETAIL = "BUSINESS_DETAIL",
   BUSINESS_CREATE = "BUSINESS_CREATE",
   BUSINESS_EDIT = "BUSINESS_EDIT",
-  PRODUCT_DETAIL = "PRODUCT_DETAIL",
-  PRODUCT_CREATE = "PRODUCT_CREATE",
-  PRODUCT_EDIT = "PRODUCT_EDIT",
-  CATALOG_DETAIL = "CATALOG_DETAIL",
-  CATALOG_CREATE = "CATALOG_CREATE",
-  CATALOG_EDIT = "CATALOG_EDIT",
-  CATALOG_PDF = "CATALOG_PDF",
+  CATEGORY_LIST = "CATEGORY_LIST",
+  CATEGORY_DETAIL = "CATEGORY_DETAIL",
+  CATEGORY_CREATE = "CATEGORY_CREATE",
+  CATEGORY_EDIT = "CATEGORY_EDIT",
   PROFILE = "PROFILE",
 }
 
@@ -30,34 +27,21 @@ export const BREADCRUMB_CONFIG: Record<BREADCRUMB, BreadcrumbItem[]> = {
     { label: "Negocios", href: "/business" },
     { label: "Editar Negocio", href: "#" },
   ],
-  [BREADCRUMB.PRODUCT_DETAIL]: [
-    { label: "Productos", href: "/product" },
-    { label: "Detalle de Producto", href: "#" },
+  [BREADCRUMB.CATEGORY_LIST]: [
+    { label: "Dashboard", href: "/admin" },
+    { label: "Categories", href: "#" },
   ],
-  [BREADCRUMB.PRODUCT_CREATE]: [
-    { label: "Productos", href: "/product" },
-    { label: "Crear Producto", href: "#" },
+  [BREADCRUMB.CATEGORY_DETAIL]: [
+    { label: "Categories", href: "/admin/categories" },
+    { label: "Category Detail", href: "#" },
   ],
-  [BREADCRUMB.PRODUCT_EDIT]: [
-    { label: "Productos", href: "/product" },
-    { label: "Editar Producto", href: "#" },
+  [BREADCRUMB.CATEGORY_CREATE]: [
+    { label: "Categories", href: "/admin/categories" },
+    { label: "Create Category", href: "#" },
   ],
-  [BREADCRUMB.CATALOG_DETAIL]: [
-    { label: "Catálogos", href: "/catalog" },
-    { label: "Detalle de Catálogo", href: "#" },
-  ],
-  [BREADCRUMB.CATALOG_CREATE]: [
-    { label: "Catálogos", href: "/catalog" },
-    { label: "Crear Catálogo", href: "#" },
-  ],
-  [BREADCRUMB.CATALOG_EDIT]: [
-    { label: "Catálogos", href: "/catalog" },
-    { label: "Editar Catálogo", href: "#" },
-  ],
-  [BREADCRUMB.CATALOG_PDF]: [
-    { label: "Catálogos", href: "/catalog" },
-    { label: "Detalle de Catálogo", href: "#" },
-    { label: "Vista PDF", href: "#" },
+  [BREADCRUMB.CATEGORY_EDIT]: [
+    { label: "Categories", href: "/admin/categories" },
+    { label: "Edit Category", href: "#" },
   ],
   [BREADCRUMB.PROFILE]: [
     { label: "Admin", href: "/admin" },

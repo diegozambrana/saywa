@@ -22,4 +22,11 @@ export const navItems: NavItem[] = [
     label: "users",
     adminOnly: true,
   },
+  {
+    title: "Categories",
+    href: "/admin/categories",
+    icon: "tag",
+    label: "categories",
+    adminOnly: true,
+  },
 ];

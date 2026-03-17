@@ -1,3 +1,5 @@
+import { MainContainer } from "@/components/layout/container";
+
 export default function Page() {
-    return <div>Admin</div>;
+    return <MainContainer title="Admin">Admin</MainContainer>;
 }

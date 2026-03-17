@@ -9,21 +9,6 @@ export const metadata = {
 };
 
 export default async function AdminUsersPage() {
-  // Verificar que el usuario está autenticado y es admin
-  // const userProfile = await getUserProfile();
-
-  // if (!userProfile) {
-  //   redirect("/sign-in");
-  // }
-
-  // if (userProfile.role !== "ADMIN") {
-  //   redirect("/dashboard");
-  // }
-
-  // // Obtener todos los usuarios
-  // const users = await getAllUsersAction();
-
-  // return <UsersList initialUsers={users} />;
 
   return <div>Users</div>;
 }
