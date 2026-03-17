@@ -107,7 +107,7 @@ export function DashboardNav({
           </>
         )}
         <div className="absolute bottom-4">
-          <button
+          {/* <button
             type="button"
             className="flex items-center gap-2 overflow-hidden rounded-md py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground w-full text-left"
             onClick={() => {
@@ -121,7 +121,7 @@ export function DashboardNav({
             ) : (
               ""
             )}
-          </button>
+          </button> */}
           <div
             className="flex items-center gap-2 overflow-hidden rounded-md py-2 text-sm font-medium"
             role="status"
